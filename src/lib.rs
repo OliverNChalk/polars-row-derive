@@ -36,6 +36,7 @@ fn impl_handler_macro(ast: &syn::DeriveInput) -> TokenStream {
 
     let public = match &ast.vis {
         syn::Visibility::Public(_) => Some(syn::Ident::new("pub", name.span())),
+        syn::Visibility::Restricted(_) => Some(syn::Ident::new("pub", name.span())),
         _ => None,
     };
 
